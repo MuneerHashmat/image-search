@@ -8,9 +8,18 @@ const accessKey = "qy0QArV5VPT54S8YhtlvyFP0jRizqlSVBEq4S7S2CLE";
 let searchQuery = "";
 let page = 1;
 
-async function searchImages() {
+formElement.addEventListener("submit", (e) => {
+    e.preventDefault();
+    page = 1;
     searchQuery = searchField.value;
+    searchImages(searchQuery);
+})
 
+showMore.addEventListener("click", () => {
+    searchImages(searchQuery);
+})
+
+async function searchImages(search) {
     let url = `https://api.unsplash.com/search/photos?page=${page}&query=${searchQuery}&client_id=${accessKey}`;
 
     let response = await fetch(url);
@@ -20,11 +29,12 @@ async function searchImages() {
 
     let results = data.results;
 
-    // console.log(results);
+    console.log(results);
 
     if (page === 1) {
         mainContainer.innerHTML = "";
     }
+
     results.map((result) => {
         let imageContainer = document.createElement("div");
         imageContainer.classList = "image-container";
@@ -33,7 +43,7 @@ async function searchImages() {
             <div class="link-container">
             <a href="${result.links.html}" class="link" target="_blank"><i class="fi fi-brands-unsplash"></i></a>
             </div>
-            <button onclick="downloadImage('${result.urls.small}','${result.slug}')"><i class="fi fi-sr-down-to-line"></i></button>
+            <button onclick="downloadImage('${result.urls.regular}','${result.slug}')"><i class="fi fi-sr-down-to-line"></i></button>
         `
         mainContainer.appendChild(imageContainer);
     });
@@ -43,16 +53,6 @@ async function searchImages() {
         showMore.style.display = "block";
     }
 }
-
-formElement.addEventListener("submit", (e) => {
-    e.preventDefault();
-    page = 1;
-    searchImages();
-})
-
-showMore.addEventListener("click", () => {
-    searchImages();
-})
 
 async function downloadImage(url, name) {
     try {
