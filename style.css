@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+
+nav {
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    padding: 25px 15%;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+    z-index: 5;
+    background-color: rgb(255, 118, 118);
+}
+
+nav h1 {
+    font-size: 40px;
+    font-family: "Electrolize", sans-serif;
+}
+
+#search-field {
+    border: none;
+    padding: 10px 20px;
+    font-size: 25px;
+    border-radius: 5px;
+}
+
+#search-button {
+    border: none;
+    outline: none;
+    font-size: 20px;
+    padding: 10px 15px;
+    border-radius: 30px;
+    margin-left: 20px;
+    transition: all .1s ease-out;
+    background-color: rgb(87, 163, 255);
+}
+
+#search-button:hover {
+    cursor: pointer;
+    transform: translate(0, -2px);
+}
+
+#main-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2vw;
+    width: 90vw;
+    margin: 170px auto 0 auto;
+    z-index: -1;
+}
+
+.image-container {
+    position: relative;
+    width: 21vw;
+    height: 280px;
+    background-color: beige;
+    border-radius: 10px;
+    box-shadow: 2px 1px 23px -4px rgba(0, 0, 0, 0.75);
+    overflow: hidden;
+
+}
+
+.image-container:hover .image {
+    transform: scale(1.05);
+}
+
+
+.image {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+#show-more {
+    display: none;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    padding: 10px 15px;
+    border-radius: 30px;
+    margin: 30px 45%;
+    transition: all .1s ease-out;
+    background-color: rgb(87, 163, 255);
+}
+
+#show-more:hover {
+    cursor: pointer;
+    transform: translate(0, -2px);
+}
+
+.link-container {
+    position: absolute;
+    top: 210px;
+    left: 15px;
+    padding: 10px 10px 5px 10px;
+    background-color: rgba(87, 163, 255, 0.255);
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.link {
+    color: rgb(87, 163, 255);
+    text-decoration: none;
+    font-size: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+
+.image-container>button {
+    position: absolute;
+    top: 210px;
+    right: 15px;
+    color: rgb(87, 163, 255);
+    background-color: rgba(87, 163, 255, 0.255);
+    padding: 10px 10px 5px 10px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.link-container:hover,
+.image-container>button:hover,
+.link:hover {
+    transform: scale(1.2);
+}
