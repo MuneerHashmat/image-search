@@ -20,7 +20,7 @@ showMore.addEventListener("click", () => {
 })
 
 async function searchImages(search) {
-    let url = `https://api.unsplash.com/search/photos?page=${page}&query=${searchQuery}&client_id=${accessKey}`;
+    let url = `https://api.unsplash.com/search/photos?page=${page}&per_page=30&query=${searchQuery}&client_id=${accessKey}`;
 
     let response = await fetch(url);
     let data = await response.json();
